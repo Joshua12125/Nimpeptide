@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="NIM BioLabs — precision. purity. consistency. Third-party tested laboratory compounds with batch-specific COA documentation. Lab tested in the USA."/>
+  <title>NIM BioLabs | Precision. Purity. Consistency.</title>
+  <meta name="robots" content="noindex, nofollow"/>
+  <meta name="googlebot" content="noindex, nofollow"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white:  #FFFFFF;
+      --off:    #F8FAFB;
+      --light:  #EEF2F7;
+      --border: #DDE4EF;
+      --navy:   #0B1F3C;
+      --navy2:  #0E2548;
+      --navy3:  #112B54;
+      --blue:   #1A4FA0;
+      --blue2:  #1D5AB8;
+      --sky:    #3B82F6;
+      --sky2:   #60A5FA;
+      --muted:  #6B7FA0;
+      --faint:  #A0AEBF;
+      --dark:   #060F20;
+      --mono:   "Courier New", monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--white);
+      color: var(--navy);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px; line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* ── ANN BAR ──────────────────────────────────────── */
+    .ann-bar {
+      background: var(--navy);
+      color: var(--white);
+      padding: 9px 16px;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      display: flex; align-items: center; justify-content: center;
+      gap: 28px; flex-wrap: nowrap; white-space: nowrap; overflow: hidden;
+    }
+    .ann-sep { opacity: 0.3; }
+    @media (max-width: 640px) {
+      .ann-bar span:not(:first-child) { display: none; }
+      .ann-sep { display: none; }
+    }
+
+    /* ── NAV ──────────────────────────────────────────── */
+    .nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 6vw;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px;
+      box-shadow: 0 1px 12px rgba(11,31,60,0.06);
+    }
+    .nav-logo img { height: 48px; width: auto; object-fit: contain; }
+    .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+    .nav-links a {
+      font-size: 12px; font-weight: 700; color: var(--muted);
+      letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta {
+      background: var(--navy) !important;
+      color: var(--white) !important;
+      padding: 10px 24px; font-size: 11px !important;
+      font-weight: 700 !important; letter-spacing: 0.1em !important;
+      text-transform: uppercase; transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--navy2) !important; }
+    .nav-mobile-cta {
+      display: none; background: var(--navy); color: var(--white);
+      padding: 9px 16px; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    /* ── HERO ─────────────────────────────────────────── */
+    .hero {
+      background: var(--navy);
+      min-height: 90vh;
+      display: flex; align-items: center;
+      padding: 100px 6vw 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 100% 0%, rgba(59,130,246,0.15) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 70% at 0% 100%, rgba(26,79,160,0.2) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .hero-lines {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+      pointer-events: none;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; width: 100%; position: relative; z-index: 1; max-width: 1200px; }
+
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(59,130,246,0.15); border: 1px solid rgba(59,130,246,0.3);
+      color: var(--sky2); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 6px 14px; margin-bottom: 24px; width: fit-content;
+    }
+    .hero-tag::before {
+      content: ""; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--sky2); animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.3;transform:scale(0.7);} }
+
+    .hero-h {
+      font-size: clamp(38px, 5.5vw, 68px);
+      font-weight: 900; color: var(--white);
+      line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 12px;
+    }
+    .hero-h2 {
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 300; color: rgba(255,255,255,0.5);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 28px; font-style: italic;
+    }
+    .hero-sub {
+      font-size: 16px; color: rgba(255,255,255,0.65);
+      line-height: 1.78; max-width: 480px; margin-bottom: 44px; font-weight: 300;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--white); color: var(--navy); font-weight: 800;
+      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 14px 32px; transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-white:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-ghost-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: rgba(255,255,255,0.8); font-weight: 600;
+      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 14px 32px; border: 1px solid rgba(255,255,255,0.25);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost-white:hover { border-color: var(--white); color: var(--white); }
+
+    .hero-trust {
+      display: flex; gap: 24px; flex-wrap: wrap;
+      padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .htrust {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; color: rgba(255,255,255,0.5); font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .htrust::before { content: "✓"; color: var(--sky2); font-weight: 800; }
+
+    /* hero right side */
+    .hero-right { display: flex; flex-direction: column; gap: 12px; }
+    .hero-stat-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 24px 28px;
+      display: flex; align-items: center; gap: 20px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .hero-stat-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(59,130,246,0.4); }
+    .hsc-icon { font-size: 28px; flex-shrink: 0; }
+    .hsc-num {
+      font-size: 30px; font-weight: 900; color: var(--white);
+      line-height: 1; margin-bottom: 4px; letter-spacing: -0.02em;
+    }
+    .hsc-lbl { font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* ── MARQUEE ──────────────────────────────────────── */
+    .marquee-wrap {
+      background: var(--light); border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden; padding: 14px 0;
+    }
+    .marquee-track { display: inline-flex; animation: mscroll 32s linear infinite; white-space: nowrap; }
+    .m-item {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); padding: 0 40px;
+    }
+    .m-item .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
+    @keyframes mscroll { 0%{transform:translateX(0);}100%{transform:translateX(-50%);} }
+
+    /* ── SHARED ───────────────────────────────────────── */
+    .section { padding: 100px 6vw; }
+    .section-off { background: var(--off); }
+    .section-light { background: var(--light); }
+    .section-white { background: var(--white); }
+    .section-navy { background: var(--navy); }
+    .section-border { border-top: 1px solid var(--border); }
+
+    .eyebrow {
+      font-family: var(--mono); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .eyebrow::before { content: ""; width: 20px; height: 2px; background: var(--blue); }
+
+    .sh {
+      font-size: clamp(28px, 4vw, 52px); font-weight: 800;
+      line-height: 1.06; letter-spacing: -0.025em; color: var(--navy); margin-bottom: 18px;
+    }
+    .sh-white { color: var(--white); }
+    .sh .hl { color: var(--blue); }
+    .sl { font-size: 16px; color: var(--muted); line-height: 1.78; max-width: 620px; font-weight: 300; }
+    .sl-white { color: rgba(255,255,255,0.6); }
+
+    /* ── WHY CARDS ────────────────────────────────────── */
+    .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 56px; }
+    .why-card {
+      background: var(--white); border: 1px solid var(--border);
+      padding: 40px 32px; transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .why-card:hover { box-shadow: 0 12px 40px rgba(11,31,60,0.1); transform: translateY(-4px); border-color: var(--sky); }
+    .why-card::after {
+      content: ""; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: var(--navy); transform: scaleX(0); transition: transform 0.3s;
+    }
+    .why-card:hover::after { transform: scaleX(1); }
+    .wc-num {
+      font-family: var(--mono); font-size: 10px; color: var(--faint);
+      letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 18px;
+    }
+    .wc-title { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 12px; line-height: 1.2; }
+    .wc-body { font-size: 14px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+
+    /* ── STATS ────────────────────────────────────────── */
+    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; background: var(--border); border: 1px solid var(--border); }
+    .stat-tile { background: var(--white); padding: 40px 28px; text-align: center; transition: background 0.2s; }
+    .stat-tile:hover { background: var(--off); }
+    .stat-n { font-size: 46px; font-weight: 900; color: var(--navy); line-height: 1; margin-bottom: 8px; letter-spacing: -0.03em; }
+    .stat-l { font-size: 12px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.4; }
+
+    /* ── PROCESS ──────────────────────────────────────── */
+    .process-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 56px; }
+    .proc-list { display: flex; flex-direction: column; }
+    .proc-item { display: flex; gap: 20px; padding: 28px 0; border-bottom: 1px solid var(--border); }
+    .proc-item:first-child { border-top: 1px solid var(--border); }
+    .proc-item:hover .pnum { background: var(--navy); color: var(--white); }
+    .pnum {
+      width: 38px; height: 38px; flex-shrink: 0;
+      border: 2px solid var(--border); font-size: 12px; font-weight: 800;
+      color: var(--muted); display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, color 0.2s; margin-top: 2px;
+    }
+    .ptitle { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .pbody { font-size: 13px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+    .coa-panel { position: sticky; top: 100px; }
+    .coa-box { background: var(--navy); overflow: hidden; }
+    .coa-head {
+      background: var(--blue); padding: 18px 24px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--white);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .coa-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 24px; border-bottom: 1px solid rgba(255,255,255,0.07); font-size: 13px;
+    }
+    .coa-row:last-child { border-bottom: none; }
+    .coa-lbl { color: rgba(255,255,255,0.5); }
+    .coa-val {
+      font-family: var(--mono); font-size: 11px;
+      background: rgba(59,130,246,0.15); color: var(--sky2);
+      padding: 3px 10px; letter-spacing: 0.06em;
+    }
+    .coa-note { padding: 20px 24px; font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; font-weight: 300; border-top: 1px solid rgba(255,255,255,0.07); }
+
+    /* ── TESTIMONIALS ─────────────────────────────────── */
+    .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 56px; }
+    .testi-card {
+      background: var(--white); border: 1px solid var(--border);
+      padding: 32px; transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .testi-card:hover { box-shadow: 0 8px 28px rgba(11,31,60,0.08); transform: translateY(-3px); }
+    .tc-stars { display: flex; gap: 3px; margin-bottom: 16px; }
+    .tc-star { width: 10px; height: 10px; border-radius: 50%; background: var(--navy); }
+    .tc-text { font-size: 14px; color: var(--muted); line-height: 1.78; font-style: italic; font-weight: 300; margin-bottom: 20px; padding-left: 14px; border-left: 3px solid var(--light); }
+    .tc-author { display: flex; align-items: center; gap: 12px; }
+    .tc-av {
+      width: 36px; height: 36px; background: var(--navy); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 800; color: var(--white); flex-shrink: 0;
+    }
+    .tc-name { font-size: 13px; font-weight: 700; color: var(--navy); }
+    .tc-role { font-size: 11px; color: var(--faint); }
+
+    /* ── FAQ ──────────────────────────────────────────── */
+    .faq-layout { display: grid; grid-template-columns: 320px 1fr; gap: 72px; align-items: start; margin-top: 56px; }
+    .faq-left p { font-size: 15px; color: var(--muted); line-height: 1.8; font-weight: 300; margin-top: 14px; }
+    .faq-contact-box { margin-top: 28px; background: var(--navy); padding: 24px 28px; }
+    .fc-lbl { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sky2); margin-bottom: 6px; }
+    .fc-val { font-size: 14px; font-weight: 600; color: var(--white); }
+    .faq-list { display: flex; flex-direction: column; gap: 8px; }
+    .faq-item { border: 1px solid var(--border); background: var(--white); transition: border-color 0.2s; }
+    .faq-item.open { border-color: var(--navy); }
+    .faq-q {
+      padding: 20px 24px; font-weight: 700; font-size: 14px;
+      cursor: pointer; display: flex; justify-content: space-between;
+      align-items: center; gap: 14px; user-select: none; color: var(--navy);
+    }
+    .faq-q:hover { color: var(--blue); }
+    .faq-chev { font-size: 16px; color: var(--faint); transition: transform 0.3s, color 0.2s; flex-shrink: 0; }
+    .faq-item.open .faq-chev { transform: rotate(180deg); color: var(--navy); }
+    .faq-a { display: none; padding: 0 24px 20px; font-size: 14px; color: var(--muted); line-height: 1.8; font-weight: 300; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── CTA ──────────────────────────────────────────── */
+    .cta-section {
+      background: var(--navy); padding: 96px 6vw;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(59,130,246,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-section h2 { font-size: clamp(28px,4vw,52px); font-weight: 900; color: var(--white); letter-spacing: -0.025em; line-height: 1.08; margin-bottom: 14px; position: relative; z-index: 1; }
+    .cta-section p { font-size: 16px; color: rgba(255,255,255,0.55); margin-bottom: 40px; font-weight: 300; position: relative; z-index: 1; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+
+    /* ── CONTACT ──────────────────────────────────────── */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; margin-top: 56px; }
+    .c-info { display: flex; flex-direction: column; }
+    .c-row { display: flex; gap: 16px; align-items: flex-start; padding: 22px 0; border-bottom: 1px solid var(--border); }
+    .c-row:first-child { border-top: 1px solid var(--border); }
+    .c-ico { width: 40px; height: 40px; flex-shrink: 0; background: var(--light); display: flex; align-items: center; justify-content: center; font-size: 17px; }
+    .c-lbl { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 4px; }
+    .c-val { font-size: 14px; font-weight: 600; color: var(--navy); line-height: 1.5; }
+    .c-form { display: flex; flex-direction: column; gap: 14px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-field { display: flex; flex-direction: column; gap: 5px; }
+    .form-lbl { font-family: var(--mono); font-size: 10px; color: var(--faint); letter-spacing: 0.1em; text-transform: uppercase; }
+    .form-ctrl { background: var(--off); border: 1px solid var(--border); color: var(--navy); font-family: inherit; font-size: 14px; padding: 12px 16px; outline: none; transition: border-color 0.2s; width: 100%; }
+    .form-ctrl:focus { border-color: var(--navy); }
+    textarea.form-ctrl { resize: vertical; min-height: 120px; }
+    .form-note { font-size: 11px; color: var(--faint); line-height: 1.55; }
+    .btn-navy { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: var(--white); font-weight: 700; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 32px; transition: background 0.2s, transform 0.15s; }
+    .btn-navy:hover { background: var(--navy2); transform: translateY(-1px); }
+
+    /* ── FOOTER ───────────────────────────────────────── */
+    footer { background: var(--dark); padding: 64px 6vw 28px; border-top: 3px solid var(--navy); }
+    .footer-grid { display: grid; grid-template-columns: 260px 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-logo img { height: 44px; width: auto; object-fit: contain; margin-bottom: 16px; }
+    .footer-tagline { font-size: 13px; color: rgba(255,255,255,0.35); line-height: 1.7; font-weight: 300; margin-bottom: 14px; }
+    .footer-contact { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.9; }
+    .footer-col h4 { font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: 13px; color: rgba(255,255,255,0.38); transition: color 0.2s; font-weight: 300; }
+    .footer-col ul a:hover { color: var(--sky2); }
+    .footer-div { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin-bottom: 22px; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px; }
+    .footer-legal { font-size: 11.5px; color: rgba(255,255,255,0.25); line-height: 1.65; max-width: 640px; font-weight: 300; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.18); }
+
+    /* ── RESPONSIVE ───────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-right { display: grid; grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .process-layout { grid-template-columns: 1fr; gap: 48px; }
+      .coa-panel { position: static; }
+      .faq-layout { grid-template-columns: 1fr; gap: 40px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 800px) {
+      .testi-grid { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .nav-links { display: none; }
+      .nav-mobile-cta { display: block; }
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 72px 5vw 60px; }
+      .section { padding: 72px 5vw; }
+      .why-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-right { grid-template-columns: 1fr 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-tag::before { animation: none; }
+      .marquee-track { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ANN BAR -->
+<div class="ann-bar">
+  <span>Lab Tested in the USA &middot; Every Batch</span>
+  <span class="ann-sep">|</span>
+  <span>Free Shipping on Orders Over $250</span>
+  <span class="ann-sep">|</span>
+  <span>Batch-Specific COA Available</span>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="https://nimpeptides.com" target="_blank" rel="nofollow noindex">
+    <img src="https://nimpeptides.com/wp-content/uploads/2026/07/ChatGPT_Image_Jul_11__2026__10_02_42_PM-removebg-preview.png" alt="NIM BioLabs" style="height:48px;width:auto;object-fit:contain;"/>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://nimpeptides.com/shop/" target="_blank" rel="nofollow noindex" class="nav-cta">View Catalog &rarr;</a></li>
+  </ul>
+  <a href="https://nimpeptides.com/shop/" target="_blank" rel="nofollow noindex" class="nav-mobile-cta">Catalog &rarr;</a>
+</nav>
+
+<!-- ══ HERO ═══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-lines"></div>
+  <div class="hero-grid">
+    <div>
+      <div class="hero-tag">Premium Laboratory Standards</div>
+      <h1 class="hero-h">Precision.<br>Purity.<br>Consistency.</h1>
+      <p class="hero-h2">NIM BioLabs</p>
+      <p class="hero-sub">Advancing scientific research through quality and transparency. Every product sourced through carefully selected manufacturing partners and independently tested before it reaches you.</p>
+      <div class="hero-btns">
+        <a href="https://nimpeptides.com/shop/" target="_blank" rel="nofollow noindex" class="btn-white">View Full Catalog &rarr;</a>
+        <a href="https://nimpeptides.com/coas/" target="_blank" rel="nofollow noindex" class="btn-ghost-white">Browse COAs</a>
+      </div>
+      <div class="hero-trust">
+        <div class="htrust">Lab Tested USA</div>
+        <div class="htrust">COA Per Batch</div>
+        <div class="htrust">Free Ship $250+</div>
+        <div class="htrust">24/7 Support</div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stat-card">
+        <div class="hsc-icon">🔬</div>
+        <div>
+          <div class="hsc-num">99%+</div>
+          <div class="hsc-lbl">Verified Purity</div>
+        </div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="hsc-icon">📋</div>
+        <div>
+          <div class="hsc-num">100%</div>
+          <div class="hsc-lbl">COA on File</div>
+        </div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="hsc-icon">🚚</div>
+        <div>
+          <div class="hsc-num">$250+</div>
+          <div class="hsc-lbl">Free Shipping</div>
+        </div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="hsc-icon">🛡️</div>
+        <div>
+          <div class="hsc-num">24/7</div>
+          <div class="hsc-lbl">Support</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MARQUEE ════════════════════════════════════════ -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="m-item">Lab Tested USA<span class="dot"></span></span>
+    <span class="m-item">Third-Party Verified<span class="dot"></span></span>
+    <span class="m-item">Batch-Specific COA<span class="dot"></span></span>
+    <span class="m-item">Free Shipping $250+<span class="dot"></span></span>
+    <span class="m-item">24/7 Support<span class="dot"></span></span>
+    <span class="m-item">Fast &amp; Discreet Shipping<span class="dot"></span></span>
+    <span class="m-item">SSL Secure<span class="dot"></span></span>
+    <span class="m-item">High Purity Standards<span class="dot"></span></span>
+    <span class="m-item">Lab Tested USA<span class="dot"></span></span>
+    <span class="m-item">Third-Party Verified<span class="dot"></span></span>
+    <span class="m-item">Batch-Specific COA<span class="dot"></span></span>
+    <span class="m-item">Free Shipping $250+<span class="dot"></span></span>
+    <span class="m-item">24/7 Support<span class="dot"></span></span>
+    <span class="m-item">Fast &amp; Discreet Shipping<span class="dot"></span></span>
+    <span class="m-item">SSL Secure<span class="dot"></span></span>
+    <span class="m-item">High Purity Standards<span class="dot"></span></span>
+  </div>
+</div>
+
+<!-- ══ WHY NIM ════════════════════════════════════════ -->
+<section class="section section-off section-border" id="why">
+  <div class="eyebrow">Why NIM BioLabs</div>
+  <h2 class="sh">Advancing Scientific Research<br>Through <span class="hl">Quality & Transparency</span></h2>
+  <p class="sl">At NIM BioLabs, we are committed to providing researchers with high-quality laboratory compounds backed by rigorous quality standards and transparent testing. Our mission is simple — deliver reliable materials that scientists and research professionals can purchase with confidence.</p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="wc-num">01</div>
+      <div class="wc-title">Independent Third-Party Testing</div>
+      <p class="wc-body">Every product undergoes independent third-party analytical testing to verify identity and purity before being offered to our customers. We do not self-certify — external accredited laboratories perform all analysis.</p>
+    </div>
+    <div class="why-card">
+      <div class="wc-num">02</div>
+      <div class="wc-title">Batch-Specific COA</div>
+      <p class="wc-body">Batch-specific Certificates of Analysis are provided for every product currently offered for sale, allowing customers to review laboratory testing performed by independent analytical laboratories before they order.</p>
+    </div>
+    <div class="why-card">
+      <div class="wc-num">03</div>
+      <div class="wc-title">Free Shipping Over $250</div>
+      <p class="wc-body">All orders over $250 ship free. Every shipment is packaged securely with fast, reliable and discreet delivery. We ensure your order arrives safely and professionally packaged every time.</p>
+    </div>
+    <div class="why-card">
+      <div class="wc-num">04</div>
+      <div class="wc-title">24/7 Customer Support</div>
+      <p class="wc-body">Our team is available around the clock to assist with order questions, COA requests, documentation, and technical inquiries. We strive to provide an experience that matches the quality of our products.</p>
+    </div>
+    <div class="why-card">
+      <div class="wc-num">05</div>
+      <div class="wc-title">Transparent Quality Standards</div>
+      <p class="wc-body">Quality is at the center of everything we do. We believe researchers deserve complete transparency regarding the materials they purchase. All quality standards, testing protocols, and documentation are openly shared.</p>
+    </div>
+    <div class="why-card">
+      <div class="wc-num">06</div>
+      <div class="wc-title">SSL Secure Ordering</div>
+      <p class="wc-body">Your information is protected with industry-standard SSL encryption throughout the entire ordering process. Secure online ordering backed by responsive customer support and fast, reliable fulfillment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS ══════════════════════════════════════════ -->
+<section class="section section-white section-border">
+  <div class="stats-grid">
+    <div class="stat-tile"><div class="stat-n">99%+</div><div class="stat-l">Minimum verified<br>purity standard</div></div>
+    <div class="stat-tile"><div class="stat-n">100%</div><div class="stat-l">Batches with<br>COA on file</div></div>
+    <div class="stat-tile"><div class="stat-n">$250</div><div class="stat-l">Free shipping<br>threshold</div></div>
+    <div class="stat-tile"><div class="stat-n">24/7</div><div class="stat-l">Customer support<br>availability</div></div>
+  </div>
+</section>
+
+<!-- ══ PROCESS ════════════════════════════════════════ -->
+<section class="section section-off section-border" id="process">
+  <div class="eyebrow">Our Process</div>
+  <h2 class="sh">From Sourcing to Delivery<br><span class="hl">Every Step Verified</span></h2>
+  <p class="sl">We continually evaluate our manufacturing partners and quality control processes to maintain the standards our customers expect. Nothing leaves our network without passing full verification.</p>
+
+  <div class="process-layout">
+    <div class="proc-list">
+      <div class="proc-item">
+        <div class="pnum">01</div>
+        <div>
+          <div class="ptitle">Partner Qualification</div>
+          <p class="pbody">Every product is sourced through carefully selected manufacturing partners with documented quality management systems. We evaluate each partner on an ongoing basis to ensure consistent standards.</p>
+        </div>
+      </div>
+      <div class="proc-item">
+        <div class="pnum">02</div>
+        <div>
+          <div class="ptitle">Independent Lab Testing</div>
+          <p class="pbody">All products undergo independent third-party analytical testing performed by accredited laboratories. Identity and purity are verified against strict standards before any batch is cleared for sale.</p>
+        </div>
+      </div>
+      <div class="proc-item">
+        <div class="pnum">03</div>
+        <div>
+          <div class="ptitle">Batch Verification</div>
+          <p class="pbody">Each batch is individually verified and assigned a unique batch identifier. Results are documented and made available to customers as part of the batch-specific Certificate of Analysis for that lot.</p>
+        </div>
+      </div>
+      <div class="proc-item">
+        <div class="pnum">04</div>
+        <div>
+          <div class="ptitle">COA Issued</div>
+          <p class="pbody">A full Certificate of Analysis is compiled from independent laboratory results for each batch. This document is available on our COA page at nimpeptides.com/coas for customer review at any time.</p>
+        </div>
+      </div>
+      <div class="proc-item">
+        <div class="pnum">05</div>
+        <div>
+          <div class="ptitle">Secure Dispatch</div>
+          <p class="pbody">Verified batches are securely packaged and dispatched with full order tracking. All orders over $250 ship free. Packaging is designed to be discreet, protective, and maintain product integrity in transit.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="coa-panel">
+      <div class="coa-box">
+        <div class="coa-head">📋 Verification Standards</div>
+        <div class="coa-row"><span class="coa-lbl">Testing</span><span class="coa-val">3rd Party</span></div>
+        <div class="coa-row"><span class="coa-lbl">Min. Purity</span><span class="coa-val">&gt; 99.0%</span></div>
+        <div class="coa-row"><span class="coa-lbl">COA Access</span><span class="coa-val">nimpeptides.com/coas</span></div>
+        <div class="coa-row"><span class="coa-lbl">Batch Tracking</span><span class="coa-val">Per Batch</span></div>
+        <div class="coa-row"><span class="coa-lbl">Free Shipping</span><span class="coa-val">Orders $250+</span></div>
+        <div class="coa-row"><span class="coa-lbl">Packaging</span><span class="coa-val">Secure &amp; Discreet</span></div>
+        <div class="coa-row"><span class="coa-lbl">Support</span><span class="coa-val">24/7</span></div>
+        <div class="coa-note">All COAs are publicly accessible at nimpeptides.com/coas. No account required to view batch documentation.</div>
+      </div>
+      <div style="margin-top:12px;">
+        <a href="https://nimpeptides.com/coas/" target="_blank" rel="nofollow noindex" class="btn-navy" style="width:100%;justify-content:center;">View COA Library &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ REVIEWS ════════════════════════════════════════ -->
+<section class="section section-white section-border" id="reviews">
+  <div class="eyebrow">Customer Feedback</div>
+  <h2 class="sh">Trusted by<br><span class="hl">Research Professionals</span></h2>
+  <p class="sl">Verified feedback from researchers who rely on NIM BioLabs for quality, consistency, and transparent documentation.</p>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="tc-stars"><span class="tc-star"></span><span class="tc-star"></span><span class="tc-star"></span><span class="tc-star"></span><span class="tc-star"></span></div>
+      <p class="tc-text">&ldquo;COA documentation is thorough and accessible directly from the website without needing to contact support. Batch-specific data is exactly what our lab protocol requires.&rdquo;</p>
+      <div class="tc-author"><div class="tc-av">D</div><div><div class="tc-name">Dr. D. Morrison</div><div class="tc-role">Research Biochemist</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="tc-stars"><span class="tc-star"></span><span class="tc-star"></span><span class="tc-star"></span><span class="tc-star"></span><span class="tc-star"></span></div>
+      <p class="tc-text">&ldquo;Order arrived well-packaged and discreet. Free shipping over $250 is a genuine benefit for bulk orders. Everything was exactly as described and COA matched our internal checks.&rdquo;</p>
+      <div class="tc-author"><div class="tc-av">K</div><div><div class="tc-name">K. Svensson</div><div class="tc-role">Lab Manager, CRO</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="tc-stars"><span class="tc-star"></span><span class="tc-star"></span><span class="tc-star"></span><span class="tc-star"></span><span class="tc-star"></span></div>
+      <p class="tc-text">&ldquo;Support team responded promptly and knew the product details. Independent third-party testing is a must for our protocols and NIM BioLabs delivers on that without question.&rdquo;</p>
+      <div class="tc-author"><div class="tc-av">P</div><div><div class="tc-name">Dr. P. Kamau</div><div class="tc-role">Principal Investigator</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="tc-stars"><span class="tc-star"></span><span class="tc-star"></span><span class="tc-star"></span><span class="tc-star"></span><span class="tc-star"></span></div>
+      <p class="tc-text">&ldquo;The transparency about quality standards and manufacturing partners is what set NIM BioLabs apart from other suppliers I've evaluated. Clear documentation, consistent product.&rdquo;</p>
+      <div class="tc-author"><div class="tc-av">R</div><div><div class="tc-name">R. Tanaka</div><div class="tc-role">Research Associate, Biotech</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="tc-stars"><span class="tc-star"></span><span class="tc-star"></span><span class="tc-star"></span><span class="tc-star"></span><span class="tc-star"></span></div>
+      <p class="tc-text">&ldquo;Purity results hold up against our in-house verification. Batch-specific COAs are genuinely useful — not just summaries but real laboratory data we can review and cite.&rdquo;</p>
+      <div class="tc-author"><div class="tc-av">A</div><div><div class="tc-name">Dr. A. Lindqvist</div><div class="tc-role">Analytical Chemistry Lab</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="tc-stars"><span class="tc-star"></span><span class="tc-star"></span><span class="tc-star"></span><span class="tc-star"></span><span class="tc-star"></span></div>
+      <p class="tc-text">&ldquo;Fast fulfillment and 24/7 support that actually responds. Ordering process is clean and secure. This is now our standard supplier for this category of laboratory materials.&rdquo;</p>
+      <div class="tc-author"><div class="tc-av">N</div><div><div class="tc-name">N. Okafor</div><div class="tc-role">Senior Researcher</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ════════════════════════════════════════════ -->
+<section class="section section-off section-border" id="faq">
+  <div class="eyebrow">FAQ</div>
+  <h2 class="sh">Frequently Asked<br><span class="hl">Questions</span></h2>
+
+  <div class="faq-layout">
+    <div class="faq-left">
+      <p>Everything you need to know about our quality standards, documentation, shipping, and policies — answered directly.</p>
+      <div class="faq-contact-box">
+        <div class="fc-lbl">Contact Us</div>
+        <div class="fc-val">nimpeptides.com/contact-us</div>
+      </div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Where can I find the Certificate of Analysis for a product?</span><span class="faq-chev">&#9662;</span></div>
+        <div class="faq-a">All batch-specific Certificates of Analysis are publicly available at nimpeptides.com/coas. No account or purchase is required to access COA documentation. Each COA includes laboratory testing results performed by independent analytical laboratories, including purity verification and batch identification details.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Do you offer free shipping?</span><span class="faq-chev">&#9662;</span></div>
+        <div class="faq-a">Yes. Free shipping is available on all orders over $250. All shipments are packaged securely and discreetly with full order tracking provided. For orders under $250, standard shipping rates apply based on destination and selected service level.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>How are products tested for quality?</span><span class="faq-chev">&#9662;</span></div>
+        <div class="faq-a">Every product is sourced through carefully selected manufacturing partners and undergoes independent third-party analytical testing to verify identity and purity before being offered for sale. Testing is performed by accredited external laboratories — not internally by NIM BioLabs — ensuring objective, unbiased results.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Who are these products intended for?</span><span class="faq-chev">&#9662;</span></div>
+        <div class="faq-a">All products sold by NIM BioLabs are designated for laboratory, analytical, and scientific research purposes by qualified professionals. Purchasers are solely responsible for ensuring compliance with all applicable laws and regulations in their jurisdiction. NIM BioLabs makes no diagnostic, therapeutic, or clinical claims.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>What is your refund and returns policy?</span><span class="faq-chev">&#9662;</span></div>
+        <div class="faq-a">Full details of our refund and returns policy are available at nimpeptides.com/refund-policy. If you have a question about a specific order or product, please contact our support team directly through the contact page at nimpeptides.com/contact-us.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>How do I get in touch with customer support?</span><span class="faq-chev">&#9662;</span></div>
+        <div class="faq-a">Our support team is available 24/7. You can reach us through the contact form at nimpeptides.com/contact-us. We strive to provide responsive, knowledgeable assistance for all order questions, COA requests, and general inquiries.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ════════════════════════════════════════════ -->
+<div class="cta-section">
+  <h2>Quality You Can Verify.<br>Consistency You Can Rely On.</h2>
+  <p>Batch-specific COA. Third-party tested. Free shipping on orders over $250.</p>
+  <div class="cta-btns">
+    <a href="https://nimpeptides.com/shop/" target="_blank" rel="nofollow noindex" class="btn-white">View Full Catalog &rarr;</a>
+    <a href="https://nimpeptides.com/coas/" target="_blank" rel="nofollow noindex" class="btn-ghost-white">Browse COA Library</a>
+  </div>
+</div>
+
+<!-- ══ CONTACT ════════════════════════════════════════ -->
+<section class="section section-white section-border" id="contact">
+  <div class="eyebrow">Get in Touch</div>
+  <h2 class="sh">Speak With<br><span class="hl">Our Team</span></h2>
+  <p class="sl">COA requests, order inquiries, documentation questions — handled by our support team around the clock.</p>
+
+  <div class="contact-grid">
+    <div class="c-info">
+      <div class="c-row"><div class="c-ico">🌐</div><div><div class="c-lbl">Website</div><div class="c-val">nimpeptides.com</div></div></div>
+      <div class="c-row"><div class="c-ico">📋</div><div><div class="c-lbl">COA Library</div><div class="c-val">nimpeptides.com/coas</div></div></div>
+      <div class="c-row"><div class="c-ico">📦</div><div><div class="c-lbl">Shipping</div><div class="c-val">Free on orders over $250<br>Fast &amp; discreet packaging</div></div></div>
+      <div class="c-row"><div class="c-ico">🕐</div><div><div class="c-lbl">Support</div><div class="c-val">24/7 Customer Support</div></div></div>
+    </div>
+    <div class="c-form">
+      <div class="form-row">
+        <div class="form-field"><label class="form-lbl">First Name</label><input type="text" class="form-ctrl" placeholder="Jane"/></div>
+        <div class="form-field"><label class="form-lbl">Last Name</label><input type="text" class="form-ctrl" placeholder="Smith"/></div>
+      </div>
+      <div class="form-field"><label class="form-lbl">Email Address</label><input type="email" class="form-ctrl" placeholder="jane@lab.edu"/></div>
+      <div class="form-field">
+        <label class="form-lbl">Inquiry Type</label>
+        <select class="form-ctrl">
+          <option value="">Select inquiry type</option>
+          <option>COA Request</option>
+          <option>Order Status</option>
+          <option>Shipping Question</option>
+          <option>Documentation Question</option>
+          <option>General Inquiry</option>
+        </select>
+      </div>
+      <div class="form-field"><label class="form-lbl">Message</label><textarea class="form-ctrl" placeholder="Describe your question. Include your order number if relevant."></textarea></div>
+      <p class="form-note">By submitting you agree to our Privacy Policy. Information is handled in accordance with applicable data protection regulations.</p>
+      <a href="https://nimpeptides.com/contact-us/" target="_blank" rel="nofollow noindex" class="btn-navy" style="align-self:flex-start;">Submit via nimpeptides.com &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">
+        <img src="https://nimpeptides.com/wp-content/uploads/2026/07/ChatGPT_Image_Jul_11__2026__10_02_42_PM-removebg-preview.png" alt="NIM BioLabs"/>
+      </div>
+      <p class="footer-tagline">Advancing scientific research through quality and transparency. Third-party tested. Batch-specific COA. Fast &amp; discreet shipping.</p>
+      <div class="footer-contact">nimpeptides.com/contact-us</div>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="https://nimpeptides.com/shop/" target="_blank" rel="nofollow noindex">All Products</a></li>
+        <li><a href="https://nimpeptides.com/coas/" target="_blank" rel="nofollow noindex">COA Library</a></li>
+        <li><a href="https://nimpeptides.com/my-account/" target="_blank" rel="nofollow noindex">My Account</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="https://nimpeptides.com/about/" target="_blank" rel="nofollow noindex">About Us</a></li>
+        <li><a href="https://nimpeptides.com/faqs/" target="_blank" rel="nofollow noindex">FAQs</a></li>
+        <li><a href="https://nimpeptides.com/contact-us/" target="_blank" rel="nofollow noindex">Contact Us</a></li>
+        <li><a href="https://nimpeptides.com/shipping-policy/" target="_blank" rel="nofollow noindex">Shipping Policy</a></li>
+        <li><a href="https://nimpeptides.com/refund-policy/" target="_blank" rel="nofollow noindex">Refund Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="https://nimpeptides.com/terms-and-conditions/" target="_blank" rel="nofollow noindex">Terms &amp; Conditions</a></li>
+        <li><a href="https://nimpeptides.com/privacy-policy-2/" target="_blank" rel="nofollow noindex">Privacy Policy</a></li>
+        <li><a href="https://nimpeptides.com/shipping-policy/" target="_blank" rel="nofollow noindex">Shipping Policy</a></li>
+        <li><a href="https://nimpeptides.com/coas/" target="_blank" rel="nofollow noindex">COA &amp; Lab Reports</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr class="footer-div"/>
+  <div class="footer-bottom">
+    <p class="footer-legal">All products available through NIM BioLabs are designated for laboratory, analytical, and scientific research purposes by qualified professionals. Purchasers are solely responsible for ensuring compliance with all applicable laws and regulations in their jurisdiction. NIM BioLabs makes no diagnostic, therapeutic, or clinical claims.</p>
+    <div class="footer-copy">&copy; 2026 NIM BioLabs. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleFaq(el) {
+    var item = el.parentElement;
+    var isOpen = item.classList.contains("open");
+    document.querySelectorAll(".faq-item").forEach(function(i){ i.classList.remove("open"); });
+    if (!isOpen) item.classList.add("open");
+  }
+  var sections = document.querySelectorAll("section[id]");
+  var navLinks = document.querySelectorAll(".nav-links a");
+  window.addEventListener("scroll", function() {
+    var current = "";
+    sections.forEach(function(s){ if (window.scrollY >= s.offsetTop - 90) current = s.id; });
+    navLinks.forEach(function(a){ a.style.color = a.getAttribute("href") === "#" + current ? "#1A4FA0" : ""; });
+  });
+</script>
+</body>
+</html>
+HTMLEOF
